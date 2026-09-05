@@ -21,6 +21,9 @@
   <!-- Tailwind CSS CDN with Plugins -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
+  <!-- Confetti Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
   <!-- Google Fonts for Classical Baroque Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,14 +135,14 @@
 
     /* Dialog animations */
     dialog[open] {
-      animation: zoomIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     dialog::backdrop {
-      background: rgba(20, 16, 10, 0.75);
-      backdrop-filter: blur(4px);
+      background: rgba(15, 12, 8, 0.82);
+      backdrop-filter: blur(6px);
     }
     @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.95) translateY(10px); }
+      from { opacity: 0; transform: scale(0.92) translateY(16px); }
       to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
@@ -157,7 +160,7 @@
 </head>
 <body class="bg-[#181614] flex justify-center items-center min-h-screen p-0 sm:py-8 sm:px-4 text-stone-800 antialiased selection:bg-amber-200">
   
-  <!-- Audio Element with User-Specified Wedding Song (looped) -->
+  <!-- Audio Element with User Wedding Song (looped) -->
   <audio id="weddingAudio" preload="auto" loop playsinline>
     <source src="audio.mp3" type="audio/mpeg">
     <source src="Time%204%20Sumaksion%20-%20Redman.mp3" type="audio/mpeg">
@@ -215,8 +218,8 @@
         <span id="petalStatusText">Petals</span>
       </button>
 
-      <!-- Royal Music Soundtrack Player Pill (Turned on by default) -->
-      <button class="flex items-center gap-1.5 px-3 py-1 bg-[#FAF3E7]/90 border border-[#8C6D2D]/60 rounded-full shadow-xs active:scale-95 transition-all text-[#6A4E1B] hover:border-[#8C6D2D] text-[10px] font-cinzel font-semibold" id="audioToggleBtn" title="Play / Pause Wedding Soundtrack">
+      <!-- Royal Music Soundtrack Player Pill -->
+      <button class="flex items-center gap-1.5 px-3 py-1 bg-[#FAF3E7]/90 border border-[#8C6D2D]/60 rounded-full shadow-xs active:scale-95 transition-all text-[#6A4E1B] hover:border-[#8C6D2D] text-[10px] font-cinzel font-semibold cursor-pointer" id="audioToggleBtn" title="Play / Pause Wedding Music">
         <span id="audioPulseDot" class="inline-block w-2 h-2 rounded-full bg-[#8C6D2D] animate-pulse"></span>
         <svg class="w-3.5 h-3.5 text-[#8C6D2D]" fill="currentColor" viewBox="0 0 20 20">
           <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
@@ -395,25 +398,25 @@
     </section>
     <!-- END: Itinerary & Celebrations Section -->
 
-    <!-- BEGIN: Interactive Actions & RSVP -->
+    <!-- BEGIN: Interactive Actions & Warm Wishes -->
     <footer class="pt-2 pb-6 px-6 relative z-10 space-y-2.5" data-purpose="interactive-actions">
-      <!-- Main RSVP Button Styled as Gold Wax Seal Bar -->
-      <button id="openRsvpBtn" class="w-full py-2.5 px-4 rounded bg-gradient-to-r from-[#7D5C22] via-[#9B7832] to-[#7D5C22] hover:brightness-105 active:scale-[0.98] transition-all text-[#FFFDF8] font-cinzel font-bold text-xs tracking-[0.2em] uppercase shadow-md flex items-center justify-center gap-2 border border-[#BFA25D]" type="button" style="background: linear-gradient(90deg, rgb(60, 80, 46) 0%, rgb(118, 100, 42) 28%, rgb(147, 122, 51) 50%, rgb(118, 100, 42) 72%, rgb(60, 80, 46) 100%); border-color: rgb(191, 162, 93); box-shadow: rgba(40, 56, 30, 0.25) 0px 4px 12px;">
+      <!-- Main WARM WISHES Button Styled as Gold Wax Seal Bar -->
+      <button id="warmWishesBtn" class="w-full py-2.5 px-4 rounded bg-gradient-to-r from-[#7D5C22] via-[#9B7832] to-[#7D5C22] hover:brightness-105 active:scale-[0.98] transition-all text-[#FFFDF8] font-cinzel font-bold text-xs tracking-[0.2em] uppercase shadow-md flex items-center justify-center gap-2 border border-[#BFA25D] cursor-pointer" type="button" style="background: linear-gradient(90deg, rgb(60, 80, 46) 0%, rgb(118, 100, 42) 28%, rgb(147, 122, 51) 50%, rgb(118, 100, 42) 72%, rgb(60, 80, 46) 100%); border-color: rgb(191, 162, 93); box-shadow: rgba(40, 56, 30, 0.25) 0px 4px 12px;">
         <span class="text-amber-200">⚜</span>
-        <span>RSVP with Warm Wishes</span>
+        <span>WARM WISHES</span>
         <span class="text-amber-200">⚜</span>
       </button>
 
       <!-- Secondary Actions: Calendar & Venue Map -->
       <div class="grid grid-cols-2 gap-2">
-        <button id="addToCalendarBtn" class="py-2 px-2 rounded bg-[#FAF4EB] hover:bg-[#F2E5D0] active:scale-95 transition-all text-[#684E1D] font-cinzel font-semibold text-[10px] tracking-wider uppercase border border-[#8C6D2D]/50 shadow-xs flex items-center justify-center gap-1.5" type="button">
+        <button id="addToCalendarBtn" class="py-2 px-2 rounded bg-[#FAF4EB] hover:bg-[#F2E5D0] active:scale-95 transition-all text-[#684E1D] font-cinzel font-semibold text-[10px] tracking-wider uppercase border border-[#8C6D2D]/50 shadow-xs flex items-center justify-center gap-1.5 cursor-pointer" type="button">
           <svg class="w-3.5 h-3.5 text-[#8C6D2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
           </svg>
           <span>Add to Calendar</span>
         </button>
 
-        <button id="palaceDirectionsBtn" class="py-2 px-2 rounded bg-[#FAF4EB] hover:bg-[#F2E5D0] active:scale-95 transition-all text-[#684E1D] font-cinzel font-semibold text-[10px] tracking-wider uppercase border border-[#8C6D2D]/50 shadow-xs flex items-center justify-center gap-1.5" type="button">
+        <button id="palaceDirectionsBtn" class="py-2 px-2 rounded bg-[#FAF4EB] hover:bg-[#F2E5D0] active:scale-95 transition-all text-[#684E1D] font-cinzel font-semibold text-[10px] tracking-wider uppercase border border-[#8C6D2D]/50 shadow-xs flex items-center justify-center gap-1.5 cursor-pointer" type="button">
           <svg class="w-3.5 h-3.5 text-[#8C6D2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
@@ -427,7 +430,7 @@
         We eagerly await the honour of your graceful presence
       </p>
     </footer>
-    <!-- END: Interactive Actions & RSVP -->
+    <!-- END: Interactive Actions & Warm Wishes -->
 
     <!-- Vertical Foliage Margins -->
     <div class="absolute left-0 top-[40px] pointer-events-none z-10 select-none w-[85px] h-[580px] drop-shadow-sm overflow-visible">
@@ -439,78 +442,51 @@
   </main>
   <!-- END: Mobile Device Frame Container -->
 
-  <!-- BEGIN: Interactive RSVP Modal Dialog -->
-  <dialog id="rsvpModal" class="p-0 rounded-lg max-w-md w-full bg-transparent border-0 backdrop:bg-black/70">
-    <div class="parchment-bg ornate-outer-frame p-6 relative rounded-lg max-h-[90vh] overflow-y-auto">
-      <button id="closeRsvpBtn" class="absolute top-3 right-3 text-[#6A4E1B] hover:text-black text-xl font-bold w-7 h-7 rounded-full bg-[#FAF3E7] border border-[#8C6D2D]/40 flex items-center justify-center">&times;</button>
+  <!-- BEGIN: Warm Wishes Celebration Pop-Up Covering 65% of Page -->
+  <dialog id="warmWishesModal" class="p-0 rounded-2xl w-[92vw] sm:w-[65vw] max-w-[65vw] bg-transparent border-0 backdrop:bg-black/80">
+    <div class="parchment-bg ornate-outer-frame p-8 sm:p-12 relative rounded-2xl shadow-2xl flex flex-col items-center justify-center text-center w-full min-h-[55vh] space-y-6">
+      <!-- Close Button -->
+      <button id="closeWarmWishesBtn" class="absolute top-4 right-4 text-[#6A4E1B] hover:text-black text-2xl font-bold w-9 h-9 rounded-full bg-[#FAF3E7] border border-[#8C6D2D]/50 flex items-center justify-center cursor-pointer transition-transform active:scale-90 shadow-sm">&times;</button>
       
-      <div class="text-center mb-4">
-        <div class="text-xl text-[#8C6D2D]">⚜</div>
-        <h3 class="font-cinzel text-base font-bold uppercase tracking-widest text-[#553C14]">Royal RSVP</h3>
-        <p class="font-playfair italic text-xs text-[#785A24]">Kindly grace us with your gracious confirmation</p>
+      <!-- Regal Crest Icon & Confetti Emojis -->
+      <div class="space-y-2">
+        <div class="text-3xl sm:text-4xl text-[#8C6D2D]">⚜ 👑 ⚜</div>
+        <div class="flex items-center justify-center gap-3 text-4xl sm:text-5xl animate-bounce">
+          <span>🎉</span>
+          <span>🤑</span>
+          <span>🥂</span>
+        </div>
       </div>
 
-      <form id="rsvpForm" class="space-y-3.5">
-        <div>
-          <label class="block font-cinzel text-[11px] font-semibold uppercase tracking-wider text-[#553C14] mb-1">Honoured Guest Name(s) *</label>
-          <input type="text" required id="guestName" placeholder="e.g. Mr. & Mrs. Sharma" class="w-full px-3 py-2 text-xs font-garamond bg-[#FFFDF9] border border-[#8C6D2D]/60 rounded focus:border-[#8C6D2D] focus:ring-1 focus:ring-[#8C6D2D] outline-none">
+      <!-- Main Pop-up Message -->
+      <div class="space-y-4 max-w-xl mx-auto">
+        <h2 class="font-cinzel text-xl sm:text-3xl font-extrabold uppercase tracking-widest text-[#3A280C] leading-snug drop-shadow-sm">
+          Thank You! We hope you come to our wedding 🤑
+        </h2>
+        
+        <div class="flex items-center justify-center gap-3 my-2">
+          <span class="h-[1px] w-16 bg-gradient-to-r from-transparent via-[#8C6D2D] to-transparent"></span>
+          <span class="text-[#8C6D2D] text-sm">✦ ⚜ ✦</span>
+          <span class="h-[1px] w-16 bg-gradient-to-l from-transparent via-[#8C6D2D] to-transparent"></span>
         </div>
 
-        <div class="grid grid-cols-2 gap-2">
-          <div>
-            <label class="block font-cinzel text-[11px] font-semibold uppercase tracking-wider text-[#553C14] mb-1">Email / Phone *</label>
-            <input type="text" required id="guestContact" placeholder="Contact Details" class="w-full px-3 py-2 text-xs font-garamond bg-[#FFFDF9] border border-[#8C6D2D]/60 rounded focus:border-[#8C6D2D] focus:ring-1 focus:ring-[#8C6D2D] outline-none">
-          </div>
-          <div>
-            <label class="block font-cinzel text-[11px] font-semibold uppercase tracking-wider text-[#553C14] mb-1">No. of Attendees</label>
-            <select id="guestCount" class="w-full px-3 py-2 text-xs font-garamond bg-[#FFFDF9] border border-[#8C6D2D]/60 rounded focus:border-[#8C6D2D] focus:ring-1 focus:ring-[#8C6D2D] outline-none">
-              <option value="1">1 Guest</option>
-              <option value="2" selected>2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5+">5+ Family</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block font-cinzel text-[11px] font-semibold uppercase tracking-wider text-[#553C14] mb-1">Attendance Confirmation</label>
-          <div class="grid grid-cols-2 gap-2 text-xs font-garamond">
-            <label class="flex items-center gap-2 p-2 border border-[#8C6D2D]/50 rounded bg-[#FAF4EB] cursor-pointer">
-              <input type="radio" name="attendance" value="attending" checked class="text-[#8C6D2D] focus:ring-[#8C6D2D]">
-              <span class="text-[#553C14] font-medium">Joyfully Accepts</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 border border-[#8C6D2D]/50 rounded bg-[#FAF4EB] cursor-pointer">
-              <input type="radio" name="attendance" value="declining" class="text-[#8C6D2D] focus:ring-[#8C6D2D]">
-              <span class="text-[#553C14] font-medium">Regretfully Declines</span>
-            </label>
-          </div>
-        </div>
-
-        <div>
-          <label class="block font-cinzel text-[11px] font-semibold uppercase tracking-wider text-[#553C14] mb-1">Warm Wishes & Blessings</label>
-          <textarea id="guestMessage" rows="2" placeholder="Send your loving blessings to the couple..." class="w-full px-3 py-2 text-xs font-garamond bg-[#FFFDF9] border border-[#8C6D2D]/60 rounded focus:border-[#8C6D2D] focus:ring-1 focus:ring-[#8C6D2D] outline-none"></textarea>
-        </div>
-
-        <button type="submit" class="w-full py-2.5 px-4 rounded bg-gradient-to-r from-[#7D5C22] via-[#9B7832] to-[#7D5C22] hover:brightness-105 active:scale-[0.98] transition-all text-[#FFFDF8] font-cinzel font-bold text-xs tracking-[0.2em] uppercase shadow-md border border-[#BFA25D]">
-          Seal & Send RSVP
-        </button>
-      </form>
-
-      <div id="rsvpSuccess" class="hidden text-center py-4 space-y-2">
-        <div class="text-3xl">✨ 🕊️ ✨</div>
-        <h4 class="font-cinzel text-sm font-bold text-[#553C14] uppercase">Gratitude & Blessings Received</h4>
-        <p class="font-playfair italic text-xs text-[#785A24]">Your presence will truly sanctify and embellish this auspicious celebration.</p>
-        <button id="closeSuccessBtn" class="mt-3 px-4 py-1.5 text-[10px] font-cinzel uppercase tracking-wider bg-[#FAF4EB] border border-[#8C6D2D]/60 rounded text-[#684E1D]">Close</button>
+        <p class="font-playfair italic text-sm sm:text-base text-[#6A4E1B] leading-relaxed">
+          Your warm blessings and presence mean the world to Shikha & Pavitra. We can’t wait to celebrate this joyous milestone together!
+        </p>
       </div>
+
+      <!-- Celebration Action Button -->
+      <button id="moreConfettiBtn" class="py-3 px-8 rounded-full bg-gradient-to-r from-[#7D5C22] via-[#9B7832] to-[#7D5C22] hover:brightness-110 active:scale-95 transition-all text-[#FFFDF8] font-cinzel font-bold text-xs sm:text-sm tracking-[0.2em] uppercase shadow-lg border border-[#BFA25D] cursor-pointer">
+        ✨ Shower More Confetti ✨
+      </button>
     </div>
   </dialog>
-  <!-- END: Interactive RSVP Modal Dialog -->
+  <!-- END: Warm Wishes Celebration Pop-Up -->
 
   <!-- BEGIN: Palace Directions Modal -->
   <dialog id="directionsModal" class="p-0 rounded-lg max-w-md w-full bg-transparent border-0 backdrop:bg-black/70">
     <div class="parchment-bg ornate-outer-frame p-6 relative rounded-lg">
-      <button id="closeDirectionsBtn" class="absolute top-3 right-3 text-[#6A4E1B] hover:text-black text-xl font-bold w-7 h-7 rounded-full bg-[#FAF3E7] border border-[#8C6D2D]/40 flex items-center justify-center">&times;</button>
+      <button id="closeDirectionsBtn" class="absolute top-3 right-3 text-[#6A4E1B] hover:text-black text-xl font-bold w-7 h-7 rounded-full bg-[#FAF3E7] border border-[#8C6D2D]/40 flex items-center justify-center cursor-pointer">&times;</button>
       
       <div class="text-center mb-4">
         <div class="text-xl text-[#8C6D2D]">🏛️</div>
@@ -561,15 +537,15 @@
 
   <!-- BEGIN: Interactive Client Scripts -->
   <script>
-    // --- Audio Player Logic with Autoplay by Default & Fallback ---
+    // --- Audio Autoplay Engine with Bulletproof User Interaction Handlers ---
     const weddingAudio = document.getElementById('weddingAudio');
     const audioToggleBtn = document.getElementById('audioToggleBtn');
     const audioPulseDot = document.getElementById('audioPulseDot');
     const audioLabel = document.getElementById('audioLabel');
     let isAudioPlaying = false;
-    let userHasMuted = false;
+    let userExplicitlyMuted = false;
 
-    function setAudioPlayingState(playing) {
+    function updateAudioUI(playing) {
       isAudioPlaying = playing;
       if (playing) {
         audioPulseDot.classList.add('animate-pulse');
@@ -583,50 +559,181 @@
       }
     }
 
-    function tryPlayAudio() {
-      if (userHasMuted) return;
+    function playWeddingAudio() {
+      if (userExplicitlyMuted) return;
+      weddingAudio.volume = 1.0;
       const playPromise = weddingAudio.play();
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            setAudioPlayingState(true);
+            updateAudioUI(true);
           })
-          .catch(() => {
-            // Autoplay blocked by browser policy until user gesture
-            setAudioPlayingState(false);
+          .catch((err) => {
+            console.log('Autoplay pending user gesture:', err.message);
+            // Do not permanently mark as paused if blocked by browser policy
+            if (!userExplicitlyMuted) {
+              updateAudioUI(false);
+            }
           });
       }
     }
 
-    // Try starting audio immediately on load
-    window.addEventListener('DOMContentLoaded', tryPlayAudio);
-    window.addEventListener('load', tryPlayAudio);
+    // Try playing immediately
+    window.addEventListener('DOMContentLoaded', playWeddingAudio);
+    window.addEventListener('load', playWeddingAudio);
 
-    // Also trigger playback on first user touch/click/scroll (bypasses browser autoplay lock)
-    function onFirstUserInteraction() {
-      if (!isAudioPlaying && !userHasMuted) {
-        tryPlayAudio();
+    // Binds one-time listener to ANY user interaction (click, tap, scroll, touch) to start playback immediately
+    function unlockAudioOnGesture() {
+      if (!isAudioPlaying && !userExplicitlyMuted) {
+        playWeddingAudio();
       }
-      ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
-        document.removeEventListener(evt, onFirstUserInteraction);
-      });
     }
-    ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
-      document.addEventListener(evt, onFirstUserInteraction, { once: true, passive: true });
+    ['click', 'pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+      window.addEventListener(evt, unlockAudioOnGesture, { passive: true });
+      document.addEventListener(evt, unlockAudioOnGesture, { passive: true });
     });
 
+    // Audio Pill Toggle
     audioToggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       if (weddingAudio.paused) {
-        userHasMuted = false;
+        userExplicitlyMuted = false;
         weddingAudio.play().then(() => {
-          setAudioPlayingState(true);
+          updateAudioUI(true);
         }).catch(console.error);
       } else {
-        userHasMuted = true;
+        userExplicitlyMuted = true;
         weddingAudio.pause();
-        setAudioPlayingState(false);
+        updateAudioUI(false);
       }
+    });
+
+    // --- High Energy Confetti Cannon Fireworks ---
+    function triggerEpicConfetti() {
+      if (typeof confetti === 'function') {
+        // Center burst
+        confetti({
+          particleCount: 100,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#C5A859', '#8C6D2D', '#D946EF', '#EC4899', '#F59E0B', '#10B981', '#ffffff']
+        });
+
+        // Left cannon
+        setTimeout(() => {
+          confetti({
+            particleCount: 70,
+            angle: 60,
+            spread: 60,
+            origin: { x: 0.1, y: 0.7 },
+            colors: ['#C5A859', '#FFD700', '#F43F5E', '#8B5CF6', '#10B981']
+          });
+        }, 150);
+
+        // Right cannon
+        setTimeout(() => {
+          confetti({
+            particleCount: 70,
+            angle: 120,
+            spread: 60,
+            origin: { x: 0.9, y: 0.7 },
+            colors: ['#C5A859', '#FFD700', '#F43F5E', '#8B5CF6', '#10B981']
+          });
+        }, 300);
+      }
+
+      // Also trigger canvas rose petals burst
+      for (let i = 0; i < 30; i++) {
+        const p = new Petal();
+        p.x = canvas.width / 2;
+        p.y = canvas.height / 2;
+        p.speedY = (Math.random() - 0.5) * 8;
+        p.speedX = (Math.random() - 0.5) * 8;
+        particles.push(p);
+      }
+    }
+
+    // --- Warm Wishes Pop-Up Logic (65% Coverage) ---
+    const warmWishesModal = document.getElementById('warmWishesModal');
+    const warmWishesBtn = document.getElementById('warmWishesBtn');
+    const closeWarmWishesBtn = document.getElementById('closeWarmWishesBtn');
+    const moreConfettiBtn = document.getElementById('moreConfettiBtn');
+
+    warmWishesBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Ensure audio starts on clicking Warm Wishes
+      if (weddingAudio.paused && !userExplicitlyMuted) {
+        playWeddingAudio();
+      }
+      
+      // Shower confetti & open 65% pop-up
+      triggerEpicConfetti();
+      warmWishesModal.showModal();
+    });
+
+    closeWarmWishesBtn.addEventListener('click', () => {
+      warmWishesModal.close();
+    });
+
+    moreConfettiBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      triggerEpicConfetti();
+    });
+
+    // Close on backdrop click
+    warmWishesModal.addEventListener('click', (e) => {
+      const rect = warmWishesModal.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height
+        && rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        warmWishesModal.close();
+      }
+    });
+
+    // --- Palace Directions Modal ---
+    const directionsModal = document.getElementById('directionsModal');
+    const palaceDirectionsBtn = document.getElementById('palaceDirectionsBtn');
+    const closeDirectionsBtn = document.getElementById('closeDirectionsBtn');
+
+    palaceDirectionsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      directionsModal.showModal();
+    });
+    closeDirectionsBtn.addEventListener('click', () => {
+      directionsModal.close();
+    });
+
+    // --- Add to Calendar (.ics Generator & Download) ---
+    document.getElementById('addToCalendarBtn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Shikha & Pavitra Wedding//Royal Matrimony//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        'UID:wedding-shikha-pavitra-20261020@royalmatrimony.com',
+        'DTSTAMP:20261020T000000Z',
+        'DTSTART:20261020T103000Z',
+        'DTEND:20261020T183000Z',
+        'SUMMARY:Royal Wedding of Shikha & Pavitra',
+        'DESCRIPTION:You are cordially invited to celebrate the holy matrimony of Shikha and Pavitra.\\n\\nOrder of Celebrations:\\n- 4:00 PM: The Sacred Vows\\n- 7:30 PM: Imperial Reception & Banquet',
+        'LOCATION:Plot No. A-1 & A-2, Community Centre, Road No. 42/43 (Bhagwan Mahavir Hospital Road), West Enclave, Pitampura, New Delhi, Delhi 110034',
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Royal_Wedding_Shikha_and_Pavitra.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
 
     // --- Falling Rose Petals & Golden Shimmer Canvas Animation ---
@@ -713,111 +820,6 @@
       petalsActive = !petalsActive;
       petalStatusText.textContent = petalsActive ? 'Petals' : 'No Petals';
       if (!petalsActive) ctx.clearRect(0, 0, canvas.width, canvas.height);
-    });
-
-    // --- RSVP Modal Dialog Logic ---
-    const rsvpModal = document.getElementById('rsvpModal');
-    const openRsvpBtn = document.getElementById('openRsvpBtn');
-    const closeRsvpBtn = document.getElementById('closeRsvpBtn');
-    const rsvpForm = document.getElementById('rsvpForm');
-    const rsvpSuccess = document.getElementById('rsvpSuccess');
-    const closeSuccessBtn = document.getElementById('closeSuccessBtn');
-
-    openRsvpBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      rsvpModal.showModal();
-    });
-
-    closeRsvpBtn.addEventListener('click', () => {
-      rsvpModal.close();
-    });
-
-    closeSuccessBtn.addEventListener('click', () => {
-      rsvpModal.close();
-      setTimeout(() => {
-        rsvpForm.classList.remove('hidden');
-        rsvpSuccess.classList.add('hidden');
-      }, 300);
-    });
-
-    rsvpForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('guestName').value;
-      const contact = document.getElementById('guestContact').value;
-      const count = document.getElementById('guestCount').value;
-      const attendance = document.querySelector('input[name="attendance"]:checked').value;
-      const message = document.getElementById('guestMessage').value;
-
-      const rsvpData = { name, contact, count, attendance, message, date: new Date().toISOString() };
-      
-      // Save locally
-      try {
-        const stored = JSON.parse(localStorage.getItem('wedding_rsvps') || '[]');
-        stored.push(rsvpData);
-        localStorage.setItem('wedding_rsvps', JSON.stringify(stored));
-      } catch (err) {
-        console.log(err);
-      }
-
-      // Show confirmation
-      rsvpForm.classList.add('hidden');
-      rsvpSuccess.classList.remove('hidden');
-
-      // Burst celebration petals
-      for (let i = 0; i < 24; i++) {
-        const p = new Petal();
-        p.x = canvas.width / 2;
-        p.y = canvas.height / 2;
-        p.speedY = (Math.random() - 0.5) * 6;
-        p.speedX = (Math.random() - 0.5) * 6;
-        particles.push(p);
-      }
-    });
-
-    // --- Palace Directions Modal ---
-    const directionsModal = document.getElementById('directionsModal');
-    const palaceDirectionsBtn = document.getElementById('palaceDirectionsBtn');
-    const closeDirectionsBtn = document.getElementById('closeDirectionsBtn');
-
-    palaceDirectionsBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      directionsModal.showModal();
-    });
-    closeDirectionsBtn.addEventListener('click', () => {
-      directionsModal.close();
-    });
-
-    // --- Add to Calendar (.ics Generator & Download) ---
-    document.getElementById('addToCalendarBtn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      const icsContent = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//Shikha & Pavitra Wedding//Royal Matrimony//EN',
-        'CALSCALE:GREGORIAN',
-        'METHOD:PUBLISH',
-        'BEGIN:VEVENT',
-        'UID:wedding-shikha-pavitra-20261020@royalmatrimony.com',
-        'DTSTAMP:20261020T000000Z',
-        'DTSTART:20261020T103000Z',
-        'DTEND:20261020T183000Z',
-        'SUMMARY:Royal Wedding of Shikha & Pavitra',
-        'DESCRIPTION:You are cordially invited to celebrate the holy matrimony of Shikha and Pavitra.\\n\\nOrder of Celebrations:\\n- 4:00 PM: The Sacred Vows\\n- 7:30 PM: Imperial Reception & Banquet',
-        'LOCATION:Plot No. A-1 & A-2, Community Centre, Road No. 42/43 (Bhagwan Mahavir Hospital Road), West Enclave, Pitampura, New Delhi, Delhi 110034',
-        'STATUS:CONFIRMED',
-        'END:VEVENT',
-        'END:VCALENDAR'
-      ].join('\r\n');
-
-      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Royal_Wedding_Shikha_and_Pavitra.ics';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
     });
   </script>
   <!-- END: Interactive Client Scripts -->
