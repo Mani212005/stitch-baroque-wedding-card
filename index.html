@@ -624,19 +624,19 @@
       }
     });
 
-    // --- Top-to-Bottom Royal Confetti Cascade (+80% Volume) ---
+    // --- Top-to-Bottom Royal Confetti Cascade (Gently Paced 0.8x Speed) ---
     function triggerEpicConfetti() {
       if (typeof confetti === 'function') {
         const luxuryColors = ['#C5A859', '#FFD700', '#F59E0B', '#E2C785', '#9B7832', '#D946EF', '#EC4899', '#F43F5E', '#10B981', '#FFFFFF'];
 
-        // Wave 1: Immediate wide cascade raining from the top (330 particles)
+        // Wave 1: Immediate wide cascade raining gently from top at 0.8x speed (330 particles)
         confetti({
           particleCount: 100,
           angle: 270,
           spread: 90,
-          startVelocity: 25,
-          gravity: 1.1,
-          ticks: 350,
+          startVelocity: 20,
+          gravity: 0.88,
+          ticks: 420,
           scalar: 1.1,
           origin: { x: 0.2, y: -0.05 },
           zIndex: 99999,
@@ -647,9 +647,9 @@
           particleCount: 130,
           angle: 270,
           spread: 110,
-          startVelocity: 28,
-          gravity: 1.1,
-          ticks: 350,
+          startVelocity: 22,
+          gravity: 0.88,
+          ticks: 420,
           scalar: 1.15,
           origin: { x: 0.5, y: -0.05 },
           zIndex: 99999,
@@ -660,24 +660,24 @@
           particleCount: 100,
           angle: 270,
           spread: 90,
-          startVelocity: 25,
-          gravity: 1.1,
-          ticks: 350,
+          startVelocity: 20,
+          gravity: 0.88,
+          ticks: 420,
           scalar: 1.1,
           origin: { x: 0.8, y: -0.05 },
           zIndex: 99999,
           colors: luxuryColors
         });
 
-        // Wave 2: Interleaved top-down shower wave after 180ms (180 particles)
+        // Wave 2: Interleaved top-down shower wave after 200ms (180 particles)
         setTimeout(() => {
           confetti({
             particleCount: 90,
             angle: 270,
             spread: 95,
-            startVelocity: 24,
-            gravity: 1.15,
-            ticks: 350,
+            startVelocity: 19,
+            gravity: 0.92,
+            ticks: 420,
             scalar: 1.05,
             origin: { x: 0.35, y: -0.05 },
             zIndex: 99999,
@@ -688,24 +688,24 @@
             particleCount: 90,
             angle: 270,
             spread: 95,
-            startVelocity: 24,
-            gravity: 1.15,
-            ticks: 350,
+            startVelocity: 19,
+            gravity: 0.92,
+            ticks: 420,
             scalar: 1.05,
             origin: { x: 0.65, y: -0.05 },
             zIndex: 99999,
             colors: luxuryColors
           });
-        }, 180);
+        }, 200);
       }
 
-      // Also trigger canvas rose petals falling from top (65 petals, +85% volume)
+      // Also trigger canvas rose petals falling gently from top at 0.8x speed (65 petals)
       for (let i = 0; i < 65; i++) {
         const p = new Petal();
         p.x = Math.random() * canvas.width;
         p.y = -20 - Math.random() * 120;
-        p.speedY = Math.random() * 3.5 + 2.0;
-        p.speedX = (Math.random() - 0.5) * 3;
+        p.speedY = Math.random() * 2.8 + 1.6;
+        p.speedX = (Math.random() - 0.5) * 2.4;
         particles.push(p);
       }
     }
