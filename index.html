@@ -12,7 +12,7 @@
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Royal Wedding Invitation | Shikha & Pavitra">
-  <meta property="og:description" content="Together with their families, cordially invite you to celebrate the holy matrimony of Shikha and Pavitra on Tuesday, 20th October 2026.">
+  <meta property="og:description" content="Together with their families, cordially invite you to celebrate the holy matrimony of Shikha and Pavitra on Tuesday, 20th October 2026 at West Enclave, Pitampura, New Delhi.">
   <meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuDcnZKZXnpP6wPfzAMamgaBQXV8yZC4K04d7yOBL_aq_7VbHaJ-0yt77BNOHuKG0HKwC0G1QmiSZeMiW_0H6RsLF0TBZPzc7x5PwFmS4lOGeWnJPMWalEVV1k8Zn0-CWfjiBSTsqKadh-KNDaGgWhfDz9MrkGVMUw6QQjzZpZI0lue45FDGMPhHCvzR2joDNPFsVCSJ8Sa6a3p_7Lt3B9NtNE39iLHW969BCTJQsl6Q6YNgun87A3jWsg">
 
   <!-- Favicon -->
@@ -157,6 +157,12 @@
 </head>
 <body class="bg-[#181614] flex justify-center items-center min-h-screen p-0 sm:py-8 sm:px-4 text-stone-800 antialiased selection:bg-amber-200">
   
+  <!-- Audio Element with User-Specified Wedding Song (looped) -->
+  <audio id="weddingAudio" preload="auto" loop playsinline>
+    <source src="audio.mp3" type="audio/mpeg">
+    <source src="Time%204%20Sumaksion%20-%20Redman.mp3" type="audio/mpeg">
+  </audio>
+
   <!-- Ambient Falling Petals Canvas -->
   <canvas id="petals-canvas"></canvas>
 
@@ -209,13 +215,13 @@
         <span id="petalStatusText">Petals</span>
       </button>
 
-      <!-- Royal Shehnai & Symphony Player Pill -->
-      <button class="flex items-center gap-1.5 px-3 py-1 bg-[#FAF3E7]/90 border border-[#8C6D2D]/60 rounded-full shadow-xs active:scale-95 transition-all text-[#6A4E1B] hover:border-[#8C6D2D] text-[10px] font-cinzel font-semibold" id="audioToggleBtn" title="Royal Shehnai & Symphony">
-        <span id="audioPulseDot" class="inline-block w-2 h-2 rounded-full bg-[#8C6D2D] opacity-40"></span>
+      <!-- Royal Music Soundtrack Player Pill (Turned on by default) -->
+      <button class="flex items-center gap-1.5 px-3 py-1 bg-[#FAF3E7]/90 border border-[#8C6D2D]/60 rounded-full shadow-xs active:scale-95 transition-all text-[#6A4E1B] hover:border-[#8C6D2D] text-[10px] font-cinzel font-semibold" id="audioToggleBtn" title="Play / Pause Wedding Soundtrack">
+        <span id="audioPulseDot" class="inline-block w-2 h-2 rounded-full bg-[#8C6D2D] animate-pulse"></span>
         <svg class="w-3.5 h-3.5 text-[#8C6D2D]" fill="currentColor" viewBox="0 0 20 20">
           <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
         </svg>
-        <span id="audioLabel">Music: Off</span>
+        <span id="audioLabel">Music: Playing</span>
       </button>
     </header>
     <!-- END: Top Audio Control Pill -->
@@ -358,8 +364,8 @@
               Solemnization of Nuptials & Vedic Rites
             </p>
             <div class="mt-1 pt-1 border-t border-[#8C6D2D]/25 flex justify-between text-[9.5px] font-cinzel text-stone-700">
-              <span class="font-semibold">Tuesday, 20th October 2026</span>
-              <span class="italic font-serif text-[#6A4E1B]">Royal Palace Courtyard</span>
+              <span class="font-semibold">Tuesday, 20th Oct 2026</span>
+              <span class="italic font-serif text-[#6A4E1B]">West Enclave, Pitampura</span>
             </div>
           </div>
         </div>
@@ -380,8 +386,8 @@
               Royal Banquet, Toasts & Celebratory Ball
             </p>
             <div class="mt-1 pt-1 border-t border-[#8C6D2D]/20 flex justify-between text-[9.5px] font-cinzel text-stone-700">
-              <span class="font-semibold">Tuesday, 20th October 2026</span>
-              <span class="italic font-serif text-[#6A4E1B]">Crystal Banquets</span>
+              <span class="font-semibold">Tuesday, 20th Oct 2026</span>
+              <span class="italic font-serif text-[#6A4E1B]">Community Centre, Pitampura</span>
             </div>
           </div>
         </div>
@@ -412,7 +418,7 @@
             <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
             <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
           </svg>
-          <span>Palace Directions</span>
+          <span>Venue Directions</span>
         </button>
       </div>
 
@@ -508,25 +514,42 @@
       
       <div class="text-center mb-4">
         <div class="text-xl text-[#8C6D2D]">🏛️</div>
-        <h3 class="font-cinzel text-base font-bold uppercase tracking-widest text-[#553C14]">Palace Venue Guide</h3>
-        <p class="font-playfair italic text-xs text-[#785A24]">Royal Palace Courtyard & Crystal Banquets</p>
+        <h3 class="font-cinzel text-base font-bold uppercase tracking-widest text-[#553C14]">Wedding Venue & Directions</h3>
+        <p class="font-playfair italic text-xs text-[#785A24]">Shikha & Pavitra's Wedding Celebrations</p>
       </div>
 
       <div class="space-y-3 text-xs font-garamond text-[#43341E]">
-        <div class="p-3 border border-[#8C6D2D]/40 rounded bg-[#FAF4EB]">
-          <h5 class="font-cinzel font-bold text-[11px] text-[#553C14] uppercase">📍 Sacred Vows (4:00 PM)</h5>
-          <p>Royal Palace Courtyard, Heritage Pavilions</p>
-          <p class="italic text-[11px] text-[#785A24] mt-0.5">Grand Entrance via North Archway</p>
+        <!-- Full Official Address Card -->
+        <div class="p-3 border border-[#8C6D2D]/50 rounded bg-[#FAF4EB] shadow-inner space-y-1">
+          <div class="flex items-center gap-1.5 text-[#553C14] font-cinzel font-bold text-[11px] uppercase">
+            <span class="text-xs">📍</span>
+            <span>Venue Address</span>
+          </div>
+          <p class="font-semibold text-[#2A1F13] leading-relaxed text-[11.5px]">
+            Plot No. A-1 &amp; A-2, Community Centre, Road No. 42/43 (Bhagwan Mahavir Hospital Road), West Enclave, Pitampura, New Delhi, Delhi 110034
+          </p>
+          <p class="italic text-[10.5px] text-[#785A24]">
+            Landmark: Near Bhagwan Mahavir Hospital / Road No. 42/43
+          </p>
         </div>
 
-        <div class="p-3 border border-[#8C6D2D]/40 rounded bg-[#FAF4EB]">
-          <h5 class="font-cinzel font-bold text-[11px] text-[#553C14] uppercase">🍸 Imperial Reception (7:30 PM)</h5>
-          <p>The Crystal Banquets, Grand Ballroom</p>
-          <p class="italic text-[11px] text-[#785A24] mt-0.5">Complimentary Royal Valet Parking Available</p>
+        <!-- Schedule details -->
+        <div class="grid grid-cols-2 gap-2">
+          <div class="p-2 border border-[#8C6D2D]/30 rounded bg-[#FAF3E7]">
+            <h5 class="font-cinzel font-bold text-[10px] text-[#553C14] uppercase">Sacred Vows</h5>
+            <p class="text-[10px] font-semibold text-[#8C6D2D]">4:00 PM</p>
+            <p class="italic text-[9.5px] text-[#785A24]">Vedic Matrimony</p>
+          </div>
+          <div class="p-2 border border-[#8C6D2D]/30 rounded bg-[#FAF3E7]">
+            <h5 class="font-cinzel font-bold text-[10px] text-[#553C14] uppercase">Imperial Reception</h5>
+            <p class="text-[10px] font-semibold text-[#8C6D2D]">7:30 PM</p>
+            <p class="italic text-[9.5px] text-[#785A24]">Banquet &amp; Ball</p>
+          </div>
         </div>
 
+        <!-- Google Maps Button -->
         <div class="pt-2">
-          <a href="https://maps.google.com/?q=Royal+Palace+Courtyard" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded bg-gradient-to-r from-[#7D5C22] via-[#9B7832] to-[#7D5C22] hover:brightness-105 active:scale-[0.98] transition-all text-[#FFFDF8] font-cinzel font-bold text-xs tracking-[0.2em] uppercase shadow-md flex items-center justify-center gap-2 border border-[#BFA25D]">
+          <a href="https://www.google.com/maps/search/?api=1&query=Plot+No.+A-1+%26+A-2,+Community+Centre,+Road+No.+42/43+(Bhagwan+Mahavir+Hospital+Road),+West+Enclave,+Pitampura,+New+Delhi,+Delhi+110034" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded bg-gradient-to-r from-[#7D5C22] via-[#9B7832] to-[#7D5C22] hover:brightness-105 active:scale-[0.98] transition-all text-[#FFFDF8] font-cinzel font-bold text-xs tracking-[0.2em] uppercase shadow-md flex items-center justify-center gap-2 border border-[#BFA25D]">
             <span>Open in Google Maps</span>
             <span>↗</span>
           </a>
@@ -538,74 +561,71 @@
 
   <!-- BEGIN: Interactive Client Scripts -->
   <script>
-    // --- Web Audio API Indian Classical Synthesizer (Shehnai & Tanpura Harmony) ---
-    let audioCtx = null;
-    let isPlayingAudio = false;
-    let audioTimer = null;
-
-    const ragaNotes = [220, 247.5, 277.18, 293.66, 329.63, 369.99, 415.3, 440]; // D-major/Kalyan raga frequencies
-
-    function playNote(freq, duration = 1.2) {
-      if (!audioCtx) return;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'triangle'; // Warm woodwind / shehnai timbre
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 0.15);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start();
-      osc.stop(audioCtx.currentTime + duration);
-    }
-
-    function startRagaMelody() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-
-      let step = 0;
-      const melodySequence = [0, 2, 4, 5, 4, 2, 1, 0, 4, 6, 7, 6, 4, 2, 0];
-
-      audioTimer = setInterval(() => {
-        const noteIdx = melodySequence[step % melodySequence.length];
-        playNote(ragaNotes[noteIdx], 1.4);
-        step++;
-      }, 700);
-    }
-
-    function stopRagaMelody() {
-      if (audioTimer) {
-        clearInterval(audioTimer);
-        audioTimer = null;
-      }
-    }
-
+    // --- Audio Player Logic with Autoplay by Default & Fallback ---
+    const weddingAudio = document.getElementById('weddingAudio');
     const audioToggleBtn = document.getElementById('audioToggleBtn');
     const audioPulseDot = document.getElementById('audioPulseDot');
     const audioLabel = document.getElementById('audioLabel');
+    let isAudioPlaying = false;
+    let userHasMuted = false;
 
-    audioToggleBtn.addEventListener('click', () => {
-      isPlayingAudio = !isPlayingAudio;
-      if (isPlayingAudio) {
-        startRagaMelody();
+    function setAudioPlayingState(playing) {
+      isAudioPlaying = playing;
+      if (playing) {
         audioPulseDot.classList.add('animate-pulse');
         audioPulseDot.style.opacity = '1';
         audioPulseDot.style.backgroundColor = '#8C6D2D';
         audioLabel.textContent = 'Music: Playing';
       } else {
-        stopRagaMelody();
         audioPulseDot.classList.remove('animate-pulse');
         audioPulseDot.style.opacity = '0.4';
-        audioLabel.textContent = 'Music: Off';
+        audioLabel.textContent = 'Music: Paused';
+      }
+    }
+
+    function tryPlayAudio() {
+      if (userHasMuted) return;
+      const playPromise = weddingAudio.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setAudioPlayingState(true);
+          })
+          .catch(() => {
+            // Autoplay blocked by browser policy until user gesture
+            setAudioPlayingState(false);
+          });
+      }
+    }
+
+    // Try starting audio immediately on load
+    window.addEventListener('DOMContentLoaded', tryPlayAudio);
+    window.addEventListener('load', tryPlayAudio);
+
+    // Also trigger playback on first user touch/click/scroll (bypasses browser autoplay lock)
+    function onFirstUserInteraction() {
+      if (!isAudioPlaying && !userHasMuted) {
+        tryPlayAudio();
+      }
+      ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+        document.removeEventListener(evt, onFirstUserInteraction);
+      });
+    }
+    ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+      document.addEventListener(evt, onFirstUserInteraction, { once: true, passive: true });
+    });
+
+    audioToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (weddingAudio.paused) {
+        userHasMuted = false;
+        weddingAudio.play().then(() => {
+          setAudioPlayingState(true);
+        }).catch(console.error);
+      } else {
+        userHasMuted = true;
+        weddingAudio.pause();
+        setAudioPlayingState(false);
       }
     });
 
@@ -688,7 +708,8 @@
 
     const petalToggleBtn = document.getElementById('petalToggleBtn');
     const petalStatusText = document.getElementById('petalStatusText');
-    petalToggleBtn.addEventListener('click', () => {
+    petalToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       petalsActive = !petalsActive;
       petalStatusText.textContent = petalsActive ? 'Petals' : 'No Petals';
       if (!petalsActive) ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -702,7 +723,8 @@
     const rsvpSuccess = document.getElementById('rsvpSuccess');
     const closeSuccessBtn = document.getElementById('closeSuccessBtn');
 
-    openRsvpBtn.addEventListener('click', () => {
+    openRsvpBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       rsvpModal.showModal();
     });
 
@@ -742,7 +764,7 @@
       rsvpSuccess.classList.remove('hidden');
 
       // Burst celebration petals
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 24; i++) {
         const p = new Petal();
         p.x = canvas.width / 2;
         p.y = canvas.height / 2;
@@ -757,7 +779,8 @@
     const palaceDirectionsBtn = document.getElementById('palaceDirectionsBtn');
     const closeDirectionsBtn = document.getElementById('closeDirectionsBtn');
 
-    palaceDirectionsBtn.addEventListener('click', () => {
+    palaceDirectionsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       directionsModal.showModal();
     });
     closeDirectionsBtn.addEventListener('click', () => {
@@ -765,7 +788,8 @@
     });
 
     // --- Add to Calendar (.ics Generator & Download) ---
-    document.getElementById('addToCalendarBtn').addEventListener('click', () => {
+    document.getElementById('addToCalendarBtn').addEventListener('click', (e) => {
+      e.stopPropagation();
       const icsContent = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
@@ -778,8 +802,8 @@
         'DTSTART:20261020T103000Z',
         'DTEND:20261020T183000Z',
         'SUMMARY:Royal Wedding of Shikha & Pavitra',
-        'DESCRIPTION:You are cordially invited to celebrate the holy matrimony of Shikha and Pavitra.\\n\\nOrder of Celebrations:\\n- 4:00 PM: The Sacred Vows (Royal Palace Courtyard)\\n- 7:30 PM: Imperial Reception & Banquet (The Crystal Banquets)',
-        'LOCATION:Royal Palace Courtyard & Crystal Banquets',
+        'DESCRIPTION:You are cordially invited to celebrate the holy matrimony of Shikha and Pavitra.\\n\\nOrder of Celebrations:\\n- 4:00 PM: The Sacred Vows\\n- 7:30 PM: Imperial Reception & Banquet',
+        'LOCATION:Plot No. A-1 & A-2, Community Centre, Road No. 42/43 (Bhagwan Mahavir Hospital Road), West Enclave, Pitampura, New Delhi, Delhi 110034',
         'STATUS:CONFIRMED',
         'END:VEVENT',
         'END:VCALENDAR'
