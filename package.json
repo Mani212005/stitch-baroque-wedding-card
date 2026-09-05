@@ -1,0 +1,13 @@
+{
+  "name": "stitch-baroque-wedding-card",
+  "version": "1.0.0",
+  "description": "Royal Baroque Opulence Wedding Card & Webpage - Shikha & Pavitra",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["wedding", "invitation", "baroque", "luxury", "tailwind"],
+  "author": "",
+  "license": "MIT"
+}
