@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Chronicle Reel - Shikha &amp; Pavitra's Wedding Journey</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&family=Courier+Prime:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brass: {
+              300: '#e7ce8c',
+              400: '#cca55a',
+              500: '#a37c34',
+              600: '#7d5c21',
+              700: '#533c14',
+              800: '#34230a',
+              900: '#1c1203'
+            },
+            parchment: '#f7f1e5',
+            leather: '#1a1209',
+            sepia: '#2e1f10'
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            playfair: ['Playfair Display', 'serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+            script: ['Pinyon Script', 'cursive'],
+            mono: ['Courier Prime', 'monospace'],
+            garamond: ['EB Garamond', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Pebble-grain Camera Leatherette Texture */
+    .camera-chassis {
+      background-color: #120d07;
+      background-image: radial-gradient(#2c1c0e 15%, transparent 16%), radial-gradient(#201509 15%, transparent 16%);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.95), 0 35px 80px -15px rgba(0,0,0,0.95);
+      border: 3px solid #73531f;
+    }
+
+    /* Machined Metal Bevel / Knurling */
+    .knurled-rim {
+      background: repeating-linear-gradient(
+        90deg,
+        #442d0b 0px,
+        #a67f3a 2px,
+        #f4d993 3px,
+        #4d340f 5px
+      );
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 10px rgba(0,0,0,0.8);
+    }
+
+    /* Realistic 3D Brass Screw Head */
+    .brass-screw {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffd98b, #7d591b 65%, #2a1b05 100%);
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.85);
+      position: relative;
+    }
+    .brass-screw::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 18%;
+      right: 18%;
+      height: 1.5px;
+      background: #140b02;
+      box-shadow: 0 1px 1px rgba(255,255,255,0.25);
+      transform: translateY(-50%) rotate(42deg);
+    }
+
+    /* Optical Glass Flare & Curved Specular Reflection */
+    .lens-glass {
+      position: relative;
+    }
+    .lens-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.06) 35%, transparent 50%, rgba(68,136,255,0.08) 75%, rgba(255,200,80,0.15) 100%);
+      pointer-events: none;
+      z-index: 25;
+    }
+    .lens-glass::after {
+      content: '';
+      position: absolute;
+      top: 6%;
+      left: 14%;
+      width: 48%;
+      height: 24%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 80%);
+      transform: rotate(-35deg);
+      pointer-events: none;
+      z-index: 26;
+    }
+
+    /* Rotating Viewfinder Mechanism */
+    .dial-rotor {
+      transition: transform 0.75s cubic-bezier(0.2, 0.9, 0.25, 1);
+    }
+    .dial-node {
+      transition: all 0.3s ease-out;
+    }
+    .active-dial-node {
+      border-color: #ffd978 !important;
+      box-shadow: 0 0 22px #f4c852, inset 0 0 10px rgba(255,225,140,0.8) !important;
+      transform: scale(1.15) !important;
+    }
+
+    /* Shutter Mechanical Flash Animation */
+    @keyframes shutterBlades {
+      0% { opacity: 0; transform: scale(1); filter: brightness(1); }
+      35% { opacity: 1; transform: scale(1.02); filter: brightness(2.2); }
+      100% { opacity: 0; transform: scale(1); filter: brightness(1); }
+    }
+    .flash-active {
+      animation: shutterBlades 0.38s ease-out forwards;
+    }
+
+    /* Gold Leaf Text */
+    .gold-emboss {
+      background: linear-gradient(180deg, #fff2cb 0%, #d8b261 50%, #875c1d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.9));
+    }
+
+    .amber-backlight {
+      box-shadow: 0 0 25px rgba(245, 186, 73, 0.4), inset 0 0 15px rgba(245, 186, 73, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-[#0b0703] text-[#e8dbcc] min-h-screen font-montserrat selection:bg-[#c5a059] selection:text-[#190e03] relative overflow-x-hidden">
+  
+  <!-- Audio Background Track -->
+  <audio id="weddingAudio" src="audio.mp3" preload="auto" loop></audio>
+
+  <!-- Ambient Darkroom Background Glow -->
+  <div class="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_top,#8f621f_0%,transparent_70%)]"></div>
+  <div class="fixed inset-0 pointer-events-none z-0 opacity-15 mix-blend-luminosity" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqWxA2wzA3sjX65lB7gYtPXfq9hvZ4o41Gdd_qdSO2fK3HJEO8v29P3rx5bPPSiOmhjlzqxZjBQw0reJIScM7fjyWJKJHm1DlGnv6jqyqqhtF7vehFIi75owzr4fgLjXZCl-pSsLMIf6AUyWNjCe61MO5Tb63EM09iP5mLdVD1iIVpjuMKnLZZTF9fCEJpHMUUa8dJVsJPVQXOVPFswkARGhdavoA7_PtEAi-GwOyW0UCupdJ20bqbWCAEm6uzsOPTCQk'); background-size: 480px auto; background-repeat: repeat;"></div>
+  <div class="fixed inset-0 pointer-events-none opacity-30 bg-[radial-gradient(circle_at_bottom_right,#5e3d0d_0%,transparent_60%)]"></div>
+
+  <!-- Royal Nav / Header Bar -->
+  <header class="sticky top-0 z-40 border-b border-[#775a19]/40 bg-[#16120c]/85 backdrop-blur-md py-2.5 flex items-center justify-between shadow-md px-3" style="border-bottom-color: rgba(140, 109, 45, 0.45); background: linear-gradient(rgba(28, 18, 5, 0.95) 0%, rgba(22, 14, 6, 0.92) 100%);">
+    <div class="flex items-center justify-start flex-shrink-0">
+      <a class="group inline-flex items-center justify-center w-8 h-8 rounded-full border border-[#6b4c18]/60 bg-[#221607]/80 hover:border-[#a87f2e] text-[#d5b573] hover:text-[#fff0ca] transition-all shadow active:scale-95" href="index.html" title="Return to Wedding Invitation">
+        <span class="material-symbols-outlined text-sm text-[#ebd094] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+      </a>
+    </div>
+
+    <div class="flex flex-col items-center justify-center text-center flex-1 px-1.5 overflow-hidden">
+      <div class="flex items-center gap-1.5 mb-0.5">
+        <span class="w-3 h-px bg-gradient-to-r from-transparent via-[#a87f2e] to-transparent opacity-60"></span>
+        <span class="font-cinzel text-[9px] tracking-[0.2em] font-bold text-[#ffd87d] uppercase">S &amp; P</span>
+        <span class="w-3 h-px bg-gradient-to-r from-transparent via-[#a87f2e] to-transparent opacity-60"></span>
+      </div>
+      <h1 class="font-playfair text-sm sm:text-base font-bold tracking-[0.1em] text-[#faebd0] leading-snug uppercase truncate max-w-full">The Chronicle Reel</h1>
+      <p class="font-script text-sm text-[#caa568] tracking-wide leading-tight mt-0.5">Shikha &amp; Pavitra</p>
+    </div>
+
+    <div class="flex items-center gap-1.5 flex-shrink-0 justify-end">
+      <!-- Ambient Music Toggle -->
+      <button id="ambientSoundBtn" class="w-8 h-8 rounded-full border border-[#7a5921] bg-[#221607] hover:bg-[#34230a] text-[#caa14d] hover:text-[#fff2cb] flex items-center justify-center transition shadow cursor-pointer" aria-label="Toggle Audio">
+        <span id="soundIcon" class="material-symbols-outlined text-sm">volume_up</span>
+      </button>
+
+      <!-- Auto Rotate Reel Toggle -->
+      <button id="autoRotateBtn" class="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-[#a87f2e] bg-gradient-to-r from-[#59390c] to-[#3a2307] text-[#fff2cb] shadow active:scale-95 flex-shrink-0 cursor-pointer" aria-label="Auto Play Film Reel">
+        <span id="playIcon" class="material-symbols-outlined text-xs text-[#ffd87d]">play_arrow</span>
+        <span id="playText" class="font-cinzel text-[9px] font-bold tracking-wider">REEL</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Viewfinder Apparatus -->
+  <main class="w-full max-w-lg mx-auto px-2 py-4 relative z-10 flex flex-col items-center select-none space-y-4">
+    
+    <!-- Title Section -->
+    <div class="text-center max-w-md px-2">
+      <h2 class="font-playfair text-2xl sm:text-3xl text-[#faebd0] font-normal tracking-wide leading-tight" style="color: rgb(246, 230, 196); text-shadow: rgba(140, 109, 45, 0.6) 0px 0px 18px;">
+        Rotate the Wheel
+      </h2>
+      <p class="font-script text-base text-[#d9b877] mt-1">Explore our journey, moments &amp; memories</p>
+    </div>
+
+    <!-- Viewfinder Camera Unit -->
+    <div class="w-full camera-chassis rounded-2xl p-3 sm:p-4 relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.98)]" style="background-image: linear-gradient(rgba(20, 13, 5, 0.72), rgba(12, 7, 2, 0.82)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRSBKGZUDFqTi6o-r3X3VEa4MKMfVlKD45NB7iL7mXmL3jOeU5vO-i0P-mS7XI9ueVuAbWfHJtKmJaairoY8vsr_Fb_YR72WhJqrO_saCXONii_RuIcbYCi92zmPV0bOmfj-MMIjhboJ3tGFUG-IuP9k5gyQQAaZSnN7ihDIyGww_gEAxZq1HvQORUxSPOIYXg90d3kgKyEtzmSoJ2jcwN5dj-G5JebmwDcnZlONmcTPJC7g3ohyPYd63Es6GWCymZSsQ'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+      
+      <!-- Brass Screws -->
+      <div class="brass-screw absolute top-2.5 left-2.5"></div>
+      <div class="brass-screw absolute top-2.5 right-2.5"></div>
+      <div class="brass-screw absolute bottom-2.5 left-2.5"></div>
+      <div class="brass-screw absolute bottom-2.5 right-2.5"></div>
+
+      <!-- Camera Header Specs Bar -->
+      <div class="flex justify-between items-center pb-2 mb-3.5 border-b border-[#5e4115] text-[11px] font-cinzel relative z-10 px-3" style="border-bottom-color: rgb(140, 109, 45); background: linear-gradient(90deg, rgba(140, 109, 45, 0.18) 0%, transparent 50%, rgba(140, 109, 45, 0.18) 100%); border-radius: 0.25rem;">
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-[#f0c34e] shadow-[0_0_8px_#f0c34e] animate-pulse"></div>
+          <span id="frameCounter" class="tracking-[0.16em] text-[#ecd49d] font-bold uppercase" style="color: rgb(255, 222, 164); text-shadow: rgba(140, 109, 45, 0.8) 0px 0px 8px;">EXP. 01 / 08</span>
+        </div>
+        <div class="flex items-center gap-2 text-[#d9b877]">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.8)]"></span>
+          <span class="font-mono text-xs tracking-wider text-[#f7e0a8] uppercase font-semibold">Interactive View</span>
+        </div>
+      </div>
+
+      <!-- Wheel Dial & Center Optical Viewfinder -->
+      <div class="flex flex-col items-center justify-center relative my-2">
+        <div class="relative w-[340px] h-[340px] sm:w-[360px] sm:h-[360px] max-w-full flex items-center justify-center select-none">
+          
+          <!-- Rotary Dial Frame -->
+          <div id="rotaryDial" class="dial-rotor absolute inset-0 rounded-full knurled-rim border-4 border-[#8f6d28] p-2.5 shadow-[0_0_35px_rgba(0,0,0,0.95),inset_0_0_18px_rgba(0,0,0,0.9)]">
+            <!-- Alignment Arrow Pointer at Top -->
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center">
+              <div class="w-6 h-6 rounded-sm bg-gradient-to-b from-[#ffea9f] via-[#d6a94f] to-[#7f581e] shadow-lg flex items-center justify-center border border-[#3e2709]">
+                <span class="text-[9px] text-[#201302] font-black">▼</span>
+              </div>
+            </div>
+
+            <!-- Dial Track with 8 Photo Nodes -->
+            <div class="relative w-full h-full rounded-full border border-[#543b12] bg-[#160e05]/75">
+              <!-- Node 0 (Top) -->
+              <button class="dial-node absolute top-1.5 left-1/2 -translate-x-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#a68038] shadow-xl overflow-hidden group cursor-pointer active-dial-node z-10" data-index="0" onclick="selectPhoto(0)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdgSdH-5cq6I5UadP4wX0UCnC3VONVV4GmWM2kOOH72SNaJTsPjpxJgAPaQcPwIWe78Rjew_TN6ktDzXkf6GAt6SY34-ntaXtmkjyaQIH0PJlbcK5qctvbpG8GosEGZO3f9QPyq6vwQACN5h34HBPTnaOfuG5JfSdE5gcsWbUnoCR25MvKdyWZmWf67starRDg93rk2VMwOpasPUGqkr_EuRv6vSdj7mIMNGbg6O11kG79zU0e0VGklgJ1P5QU6D3aIpo" alt="Hillside Sanctuary" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 1 (Top-Right) -->
+              <button class="dial-node absolute top-[14%] right-[11%] w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="1" onclick="selectPhoto(1)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuByZAQ_THBnSjIvF80dK5rk1L6uzEULrekNTIM1oeiiTfsakI8ymEIimHc7YhOe5KHtLkJ-VctsoYS9YekYCEcpStm2wZcjoWrOAO3OK46xrl2r5qe1bBs1xttJZOxCOfYYRQzuxBRoX9dfmFmRkDJscE5qWPf60lxBK5bv6tOnY5aML0N9Vdb_D8-z23FvQN3FjWrMYq1WM6Rou0zjVzJIZ4y21jzUInOZBa0zzcAxR72CMPJk9wzeAx2o9lG1F6NDLwE" alt="The Roadside Embrace" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 2 (Right) -->
+              <button class="dial-node absolute top-1/2 right-1.5 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="2" onclick="selectPhoto(2)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAuzaVhBqhMjeKPq61HLNoimFHBcdNNCCPmImAeRUe7gMr1fhGvY7k6jbfgZJNxcZX7GOpM1zNLgtROXzF-vGK5Qi28jX0h2ofe8TrdfHI7wbim2TuoVMbamAzCi8_xxjXtPcpEz3lY2Tzb-9i4SBxSpXeYteq0KURiKWl3jtMcpIc_V719eiT_153DFVNewuDRVB3Dp_-Wig7eGGA4Klmwrx0nNRuwhzjKujdb1Ij6lUQ2s433hQE-I_QgLdCgIuYZiQ" alt="An Inseparable Gaze" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 3 (Bottom-Right) -->
+              <button class="dial-node absolute bottom-[14%] right-[11%] w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="3" onclick="selectPhoto(3)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDckxoxkBqScKNfvAKtfNfe0PvouAsYbt9E3BWb5QSzeakqSoDp5uIA9ZZiXjisx7nKqpCORlx7J7YrFrKrErMX0GSA8wHcme3Ip03g2yCwmTr-ey1uFfEjcDDdafN9RV8FZ9JvvuRmBXdPmfUQrRwJLnyZxgjxCu_jgKn17tPA4Y6BxLg3FnXWrQf4njI9mZv6MEL9ncnuhTAA9shh5Sd2Iuea9uH_6_nD1sBtlanLn3NcNsLrQIOo7TMHFXO1CWVNdDc" alt="Playful Mischief" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 4 (Bottom) -->
+              <button class="dial-node absolute bottom-1.5 left-1/2 -translate-x-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="4" onclick="selectPhoto(4)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD95Ki7kx9zO7sBFMFzacuNVyY8QivYWgHvOHug5CQBs7xzJz5DV1XABJhF-n0BaRqei2tUOBihns6nA5U4O6N6wiz26TSHBSoLQ7FbDx8mPnZCU7A_87VTBAolbMiBvVa8xrwCg9cnxA6tPkGlDWx5StEcsW3I-KdaVt5Llg52uADPLMloa5nj0lRIUXwX5WXA2E2t-ZMOw6SUMlYNNrM1ToPyJa__AlevpZC8a4z3W62U1G6EapJ3ghI9lzRqHZS49gU" alt="Golden Hour Companions" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 5 (Bottom-Left) -->
+              <button class="dial-node absolute bottom-[14%] left-[11%] w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="5" onclick="selectPhoto(5)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3jrfJrMM6XfOxWE4Z6YDptePN5UrtMoFiIQvD9O8tsQf8m-SsL7ljyHTvcEebc0JmEujWgEGoukWSFy57r12rhm1AJLuQA7WqTWvn7VxrlNI2T5r9tfnFvw2ZhuJQP1b4lPIbLWVmxIXE7Rhy9mLL_na-Z6RJS3sKMJKRcvlXxNwJHwSwG4lq7aNufjy8-45OZYWj_vtVWw8rOxqA8ughSAHf5mEewQsoynibncbETjnyguyikrUTl_HZYEpiwOMy_k0" alt="Shared Dreams & Secrets" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 6 (Left) -->
+              <button class="dial-node absolute top-1/2 left-1.5 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="6" onclick="selectPhoto(6)">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApTb7jngJHiV3AL_OlYPghq2KcBsPgMZLRjAMszWdkyZubA5W8xxcizjz2nhe6O6F9CYEC3xes7HyV9Z9_paLZqo5JcFHeti0_Ntf0v_8sAvq4heZopV9sFu5_jc17N3sY0XrXwOhub5kLhlMyHcsvvakbLRrmpn5wIP6RnU3B3mLLl3pEzvpVdPqsttS-LzGpk-vcSvZ5m0vP13ncIBM4gyh3IYZ9pLj4W5dEDSOBKQo6apCRIoIOU_xgmZbO8K4yXTA" alt="Standing Firm Together" class="w-full h-full object-cover rounded-full">
+              </button>
+
+              <!-- Node 7 (Top-Left) -->
+              <button class="dial-node absolute top-[14%] left-[11%] w-11 h-11 sm:w-12 sm:h-12 rounded-full p-0.5 bg-[#1e1307] border-2 border-[#6c4e1a] shadow-xl overflow-hidden group cursor-pointer z-10" data-index="7" onclick="selectPhoto(7)">
+                <img src="https://lh3.googleusercontent.com/aida/AEtjO1X-lTuTftjJhbiZhJVD0Zkv7i9-HGbtlm-il5u9tJkevJ6DjJioZbn0CTE4cvftieVELEylRP3NfNlFlnDMu5OhOn9DF_q_aj12I63pDE9XRp7EQECbsRZcTg1GsVIcarVB2M-5Zn5UNhKRaos7DjbrjEaKZyWtKNi5WB7SQl9D-YFJpexKkcHwZp9sNpJJIvaG0h2oCw4BP0Pne9Y7XPyT4xUseML9KgqpXWC4GbnWkN9VcVw_uihdaUk" alt="The Royal Sacred Union" class="w-full h-full object-cover rounded-full">
+              </button>
+            </div>
+          </div>
+
+          <!-- Center Optical Viewfinder Lens Housing -->
+          <div class="relative w-[215px] h-[215px] sm:w-[235px] sm:h-[235px] rounded-full p-2 bg-gradient-to-tr from-[#3b270a] via-[#1a1105] to-[#593d15] border-4 border-[#8a6829] shadow-[0_12px_40px_rgba(0,0,0,0.96),inset_0_0_22px_rgba(0,0,0,0.9)] flex items-center justify-center z-20">
+            <div class="relative w-full h-full rounded-full overflow-hidden border border-[#cca55a] shadow-[inset_0_0_28px_rgba(0,0,0,0.95)] lens-glass bg-black flex items-center justify-center">
+              <img id="viewfinderImg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdgSdH-5cq6I5UadP4wX0UCnC3VONVV4GmWM2kOOH72SNaJTsPjpxJgAPaQcPwIWe78Rjew_TN6ktDzXkf6GAt6SY34-ntaXtmkjyaQIH0PJlbcK5qctvbpG8GosEGZO3f9QPyq6vwQACN5h34HBPTnaOfuG5JfSdE5gcsWbUnoCR25MvKdyWZmWf67starRDg93rk2VMwOpasPUGqkr_EuRv6vSdj7mIMNGbg6O11kG79zU0e0VGklgJ1P5QU6D3aIpo" alt="Viewfinder Photograph" class="w-full h-full object-cover object-center filter transition-all duration-300 transform scale-100">
+              
+              <!-- Vignette Gradient -->
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,rgba(18,10,3,0.85)_100%)]"></div>
+              
+              <!-- Crosshair Reticle & Optical Overlay -->
+              <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-20">
+                <div class="w-24 h-24 border border-[#f5e0aa]/35 rounded-full flex items-center justify-center">
+                  <div class="w-2 h-2 rounded-full bg-[#f5e0aa]/60 shadow-[0_0_6px_#f5e0aa]"></div>
+                  <div class="absolute w-28 h-px bg-[#f5e0aa]/25"></div>
+                  <div class="absolute h-28 w-px bg-[#f5e0aa]/25"></div>
+                </div>
+                <div id="metaAperture" class="absolute top-3 left-1/2 -translate-x-1/2 text-[9px] font-mono tracking-widest text-[#fed684]/90 drop-shadow font-bold">50mm • f/1.8 T*</div>
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-[8px] font-mono tracking-widest text-[#fed684]/90 drop-shadow font-semibold">∞ 5m 2m 1m</div>
+              </div>
+
+              <!-- Shutter Flash Effect -->
+              <div id="shutterFlash" class="absolute inset-0 bg-[#fff9ea] pointer-events-none opacity-0 z-30"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Camera Physical Buttons (PREV / SHUTTER / NEXT) -->
+        <div class="flex items-center justify-between w-full max-w-[340px] gap-2 mt-4 z-10">
+          <button onclick="prevPhoto()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#261707] hover:bg-[#3d270e] border border-[#7a5921] text-xs font-cinzel font-bold tracking-[0.16em] text-[#ebd094] transition shadow-md active:scale-95 cursor-pointer">
+            <span class="material-symbols-outlined text-sm">west</span>
+            <span>PREV</span>
+          </button>
+
+          <button onclick="triggerFlash(); nextPhoto();" class="group flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-b from-[#e3bf6e] via-[#ab8438] to-[#604213] text-[#1c1103] font-cinzel font-bold text-xs tracking-[0.2em] uppercase shadow-lg hover:scale-105 active:scale-95 transition-transform border border-[#cca55a] cursor-pointer">
+            <span class="material-symbols-outlined text-base transition-transform group-hover:rotate-45">camera</span>
+            <span>SHUTTER</span>
+          </button>
+
+          <button onclick="nextPhoto()" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#261707] hover:bg-[#3d270e] border border-[#7a5921] text-xs font-cinzel font-bold tracking-[0.16em] text-[#ebd094] transition shadow-md active:scale-95 cursor-pointer">
+            <span>NEXT</span>
+            <span class="material-symbols-outlined text-sm">east</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Story Details Journal Box -->
+      <div class="mt-4 pt-3 border-t border-[#543b14] w-full px-2 text-center space-y-1.5">
+        <div id="storyChapter" class="font-cinzel text-[10px] tracking-[0.2em] uppercase font-bold text-[#d9b877]">
+          CHAPTER I • HILLSIDE SANCTUARY
+        </div>
+        <h3 id="storyTitle" class="font-playfair text-base sm:text-lg font-bold text-[#faebd0] leading-snug">
+          Where Mountains Whispered Our First Promise
+        </h3>
+        <p id="storyQuote" class="font-script text-base text-[#ffd87d] italic">
+          “The start of every great adventure begins with one shared sunset.”
+        </p>
+        <p id="storyDescription" class="font-garamond text-xs sm:text-sm text-[#d4c4b0] leading-relaxed max-w-md mx-auto">
+          Under the misty alpine ridge of Kasauli, wrapped in fresh mountain breeze and historic stone stairways, Shikha and Pavitra took their first candid step toward a lifelong journey.
+        </p>
+        <div class="pt-1.5 flex items-center justify-center gap-3 text-[10px] font-mono text-[#aa884e]">
+          <span id="metaDate">Autumn 2024 • Morning Dew</span>
+          <span>•</span>
+          <span id="metaLocation">Kasauli Hills, 6,200 ft</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick Navigation Actions -->
+    <div class="w-full space-y-2.5 pt-1 px-1">
+      
+      <!-- Add to Calendar Button (.ics download) -->
+      <button id="downloadCalendarBtn" class="w-full py-3 rounded-xl bg-[#1e1307] hover:bg-[#2d1e0c] border border-[#8C6D2D]/70 text-[#f5e0aa] font-cinzel text-xs font-bold tracking-[0.2em] uppercase shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer">
+        <svg class="w-4 h-4 text-[#d9b877]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+        </svg>
+        <span>Add Wedding to Calendar (.ICS)</span>
+      </button>
+
+      <!-- Return to Main Wedding Invitation -->
+      <a href="index.html" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#98722c] via-[#b68f44] to-[#755018] text-[#1c1103] font-cinzel text-xs font-bold tracking-[0.24em] uppercase shadow-lg hover:shadow-[0_0_20px_rgba(214,169,79,0.5)] transition-all flex items-center justify-center gap-2 border border-[#f5e0aa]/40 active:scale-95 text-center">
+        <span class="text-[#201302]">✦</span>
+        <span>RETURN TO WEDDING INVITATION</span>
+        <span class="text-[#201302]">✦</span>
+      </a>
+
+      <!-- Romantic Footnote -->
+      <p class="font-script text-base text-[#caa568] text-center pt-2 tracking-wider leading-relaxed">
+        “Forever began the day our pathways crossed.”
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Interactive State Scripts -->
+  <script>
+    const photoData = [
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdgSdH-5cq6I5UadP4wX0UCnC3VONVV4GmWM2kOOH72SNaJTsPjpxJgAPaQcPwIWe78Rjew_TN6ktDzXkf6GAt6SY34-ntaXtmkjyaQIH0PJlbcK5qctvbpG8GosEGZO3f9QPyq6vwQACN5h34HBPTnaOfuG5JfSdE5gcsWbUnoCR25MvKdyWZmWf67starRDg93rk2VMwOpasPUGqkr_EuRv6vSdj7mIMNGbg6O11kG79zU0e0VGklgJ1P5QU6D3aIpo",
+        chapter: "CHAPTER I • HILLSIDE SANCTUARY",
+        title: "Where Mountains Whispered Our First Promise",
+        quote: "“The start of every great adventure begins with one shared sunset.”",
+        desc: "Under the misty alpine ridge of Kasauli, wrapped in fresh mountain breeze and historic stone stairways, Shikha and Pavitra took their first candid step toward a lifelong journey.",
+        date: "Autumn 2024 • Morning Dew",
+        location: "Kasauli Hills, 6,200 ft • Himachal",
+        aperture: "50mm • f/1.8 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuByZAQ_THBnSjIvF80dK5rk1L6uzEULrekNTIM1oeiiTfsakI8ymEIimHc7YhOe5KHtLkJ-VctsoYS9YekYCEcpStm2wZcjoWrOAO3OK46xrl2r5qe1bBs1xttJZOxCOfYYRQzuxBRoX9dfmFmRkDJscE5qWPf60lxBK5bv6tOnY5aML0N9Vdb_D8-z23FvQN3FjWrMYq1WM6Rou0zjVzJIZ4y21jzUInOZBa0zzcAxR72CMPJk9wzeAx2o9lG1F6NDLwE",
+        chapter: "CHAPTER II • THE ROADSIDE EMBRACE",
+        title: "Hand in Hand Against the Infinite Blue",
+        quote: "“Miles feel like mere heartbeats when you love the one beside you.”",
+        desc: "Windblown hair, shared playlists, and the endless valley horizons stretching far below. A road trip that proved true happiness is simply traveling together in harmony.",
+        date: "October 2024 • Clear Afternoon",
+        location: "Ridge Highway Overlook",
+        aperture: "35mm • f/2.8 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDAuzaVhBqhMjeKPq61HLNoimFHBcdNNCCPmImAeRUe7gMr1fhGvY7k6jbfgZJNxcZX7GOpM1zNLgtROXzF-vGK5Qi28jX0h2ofe8TrdfHI7wbim2TuoVMbamAzCi8_xxjXtPcpEz3lY2Tzb-9i4SBxSpXeYteq0KURiKWl3jtMcpIc_V719eiT_153DFVNewuDRVB3Dp_-Wig7eGGA4Klmwrx0nNRuwhzjKujdb1Ij6lUQ2s433hQE-I_QgLdCgIuYZiQ",
+        chapter: "CHAPTER III • AN INSEPARABLE GAZE",
+        title: "The Look That Needs No Words",
+        quote: "“In your smile, I see something more beautiful than the stars.”",
+        desc: "Caught between spontaneous laughter and sincere warmth. When Pavitra look into Shikha's eyes, the entire world seemed to pause in gentle reverence.",
+        date: "October 2024 • Overcast Ridge",
+        location: "Pine Woods Trail Sanctuary",
+        aperture: "85mm • f/1.4 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDckxoxkBqScKNfvAKtfNfe0PvouAsYbt9E3BWb5QSzeakqSoDp5uIA9ZZiXjisx7nKqpCORlx7J7YrFrKrErMX0GSA8wHcme3Ip03g2yCwmTr-ey1uFfEjcDDdafN9RV8FZ9JvvuRmBXdPmfUQrRwJLnyZxgjxCu_jgKn17tPA4Y6BxLg3FnXWrQf4njI9mZv6MEL9ncnuhTAA9shh5Sd2Iuea9uH_6_nD1sBtlanLn3NcNsLrQIOo7TMHFXO1CWVNdDc",
+        chapter: "CHAPTER IV • PLAYFUL MISCHIEF & LAUGHTER",
+        title: "Joy is the Light of Our Love",
+        quote: "“We do not just fall in love; we laugh ourselves into it every day.”",
+        desc: "No scripted poses, just unrestrained laughter and lighthearted teasing amongst lush wild flora and terrace meadows high in the mountain air.",
+        date: "Autumn 2024 • Late Afternoon",
+        location: "Terrace Garden Meadow",
+        aperture: "50mm • f/2.0 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD95Ki7kx9zO7sBFMFzacuNVyY8QivYWgHvOHug5CQBs7xzJz5DV1XABJhF-n0BaRqei2tUOBihns6nA5U4O6N6wiz26TSHBSoLQ7FbDx8mPnZCU7A_87VTBAolbMiBvVa8xrwCg9cnxA6tPkGlDWx5StEcsW3I-KdaVt5Llg52uADPLMloa5nj0lRIUXwX5WXA2E2t-ZMOw6SUMlYNNrM1ToPyJa__AlevpZC8a4z3W62U1G6EapJ3ghI9lzRqHZS49gU",
+        chapter: "CHAPTER V • GOLDEN HOUR COMPANIONS",
+        title: "Basking in Amber October Sunsets",
+        quote: "“Every sun that sets is a prelude to our bright tomorrow.”",
+        desc: "The setting sun illuminated the ridge trees with liquid amber, casting an ethereal golden warmth around Shikha & Pavitra as the sky turned crimson.",
+        date: "Dusk 2024 • Molten Gold Horizon",
+        location: "Sunset Point Observation",
+        aperture: "50mm • f/1.4 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD3jrfJrMM6XfOxWE4Z6YDptePN5UrtMoFiIQvD9O8tsQf8m-SsL7ljyHTvcEebc0JmEujWgEGoukWSFy57r12rhm1AJLuQA7WqTWvn7VxrlNI2T5r9tfnFvw2ZhuJQP1b4lPIbLWVmxIXE7Rhy9mLL_na-Z6RJS3sKMJKRcvlXxNwJHwSwG4lq7aNufjy8-45OZYWj_vtVWw8rOxqA8ughSAHf5mEewQsoynibncbETjnyguyikrUTl_HZYEpiwOMy_k0",
+        chapter: "CHAPTER VI • SHARED DREAMS & SECRETS",
+        title: "Whispers of a Thousand Tomorrows",
+        quote: "“Two souls, one synchronized pulse beneath an endless sky.”",
+        desc: "A heartfelt moment of intimacy where hopes and future wedding promises were spoken quietly under the evening breeze, sealing an enduring bond.",
+        date: "Twilight 2024 • Gentle Breeze",
+        location: "Valley Crest Pavilion",
+        aperture: "50mm • f/1.8 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuApTb7jngJHiV3AL_OlYPghq2KcBsPgMZLRjAMszWdkyZubA5W8xxcizjz2nhe6O6F9CYEC3xes7HyV9Z9_paLZqo5JcFHeti0_Ntf0v_8sAvq4heZopV9sFu5_jc17N3sY0XrXwOhub5kLhlMyHcsvvakbLRrmpn5wIP6RnU3B3mLLl3pEzvpVdPqsttS-LzGpk-vcSvZ5m0vP13ncIBM4gyh3IYZ9pLj4W5dEDSOBKQo6apCRIoIOU_xgmZbO8K4yXTA",
+        chapter: "CHAPTER VII • STANDING FIRM TOGETHER",
+        title: "Side by Side in Every Season",
+        quote: "“Together is the only place we ever truly desire to be.”",
+        desc: "Rooted in deep friendship, surrounded by nature and family blessings. A joyful testament to romance nurtured with respect and genuine partnership.",
+        date: "Early Autumn 2024 • Daylight",
+        location: "Botanical Forest Ridge",
+        aperture: "35mm • f/2.0 T*"
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida/AEtjO1X-lTuTftjJhbiZhJVD0Zkv7i9-HGbtlm-il5u9tJkevJ6DjJioZbn0CTE4cvftieVELEylRP3NfNlFlnDMu5OhOn9DF_q_aj12I63pDE9XRp7EQECbsRZcTg1GsVIcarVB2M-5Zn5UNhKRaos7DjbrjEaKZyWtKNi5WB7SQl9D-YFJpexKkcHwZp9sNpJJIvaG0h2oCw4BP0Pne9Y7XPyT4xUseML9KgqpXWC4GbnWkN9VcVw_uihdaUk",
+        chapter: "CHAPTER VIII • THE ROYAL SACRED UNION",
+        title: "Imperial Vows Under Gilded Arches",
+        quote: "“With these sacred rings and flames, eternity has begun.”",
+        desc: "Dressed in regal zardozi crimson lehenga and majestic antique gold sherwani, Shikha & Pavitra stand beneath cascading blooms and candlelight to celebrate their eternal wedding vows.",
+        date: "Wedding Day • Grand Celebration",
+        location: "The Grand Royal Courtyard",
+        aperture: "50mm • f/1.2 T*"
+      }
+    ];
+
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    let isPlaying = false;
+
+    function selectPhoto(index) {
+      if (index === currentIndex && document.getElementById('viewfinderImg').src) {
+        triggerFlash();
+        return;
+      }
+
+      currentIndex = index;
+      const data = photoData[currentIndex];
+
+      // Trigger realistic shutter flash
+      triggerFlash();
+
+      // Update Center Lens Photo
+      const img = document.getElementById('viewfinderImg');
+      img.style.opacity = '0.2';
+      img.style.transform = 'scale(0.97)';
+      setTimeout(() => {
+        img.src = data.src;
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+      }, 150);
+
+      // Rotate Outer Brass Wheel so selected node aligns smoothly to the top pointer
+      const rotaryDial = document.getElementById('rotaryDial');
+      const targetAngle = -(currentIndex * 45);
+      rotaryDial.style.transform = `rotate(${targetAngle}deg)`;
+
+      // Counter-rotate the thumbnails so portraits remain upright
+      const dialNodes = document.querySelectorAll('.dial-node');
+      dialNodes.forEach((node, i) => {
+        node.style.transform = (node.style.transform || '').includes('translate') 
+          ? node.style.transform.split('rotate')[0] + ` rotate(${-targetAngle}deg)`
+          : `rotate(${-targetAngle}deg)`;
+
+        if (i === currentIndex) {
+          node.classList.add('active-dial-node');
+        } else {
+          node.classList.remove('active-dial-node');
+        }
+      });
+
+      // Update Frame Counter & Story Texts
+      if (document.getElementById('frameCounter')) {
+        document.getElementById('frameCounter').textContent = `EXP. ${String(currentIndex + 1).padStart(2, '0')} / 08`;
+      }
+      if (document.getElementById('storyChapter')) document.getElementById('storyChapter').textContent = data.chapter;
+      if (document.getElementById('storyTitle')) document.getElementById('storyTitle').textContent = data.title;
+      if (document.getElementById('storyQuote')) document.getElementById('storyQuote').textContent = data.quote;
+      if (document.getElementById('storyDescription')) document.getElementById('storyDescription').textContent = data.desc;
+      if (document.getElementById('metaDate')) document.getElementById('metaDate').textContent = data.date;
+      if (document.getElementById('metaLocation')) document.getElementById('metaLocation').textContent = data.location;
+      if (document.getElementById('metaAperture')) document.getElementById('metaAperture').textContent = data.aperture;
+    }
+
+    function triggerFlash() {
+      const flash = document.getElementById('shutterFlash');
+      if (flash) {
+        flash.classList.remove('flash-active');
+        void flash.offsetWidth;
+        flash.classList.add('flash-active');
+      }
+    }
+
+    function nextPhoto() {
+      const nextIndex = (currentIndex + 1) % photoData.length;
+      selectPhoto(nextIndex);
+    }
+
+    function prevPhoto() {
+      const prevIndex = (currentIndex - 1 + photoData.length) % photoData.length;
+      selectPhoto(prevIndex);
+    }
+
+    // Autoplay Controller
+    const autoBtn = document.getElementById('autoRotateBtn');
+    const playText = document.getElementById('playText');
+    const playIcon = document.getElementById('playIcon');
+
+    autoBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        clearInterval(autoplayTimer);
+        isPlaying = false;
+        playText.textContent = "REEL";
+        playIcon.textContent = "play_arrow";
+        autoBtn.classList.remove('from-[#875816]', 'to-[#5a3608]');
+      } else {
+        isPlaying = true;
+        playText.textContent = "PAUSE";
+        playIcon.textContent = "pause";
+        autoBtn.classList.add('from-[#875816]', 'to-[#5a3608]');
+        autoplayTimer = setInterval(() => {
+          nextPhoto();
+        }, 3400);
+      }
+    });
+
+    // Ambient Wedding Music Engine
+    const weddingAudio = document.getElementById('weddingAudio');
+    const ambientSoundBtn = document.getElementById('ambientSoundBtn');
+    const soundIcon = document.getElementById('soundIcon');
+    let audioPlaying = false;
+
+    function playAudio() {
+      weddingAudio.play().then(() => {
+        audioPlaying = true;
+        soundIcon.textContent = 'volume_up';
+        ambientSoundBtn.classList.add('border-[#ffd778]', 'text-white');
+      }).catch(err => {
+        console.log('Audio autoplay prevented:', err.message);
+      });
+    }
+
+    ambientSoundBtn.addEventListener('click', () => {
+      if (weddingAudio.paused) {
+        playAudio();
+      } else {
+        weddingAudio.pause();
+        audioPlaying = false;
+        soundIcon.textContent = 'volume_off';
+        ambientSoundBtn.classList.remove('border-[#ffd778]', 'text-white');
+      }
+    });
+
+    // Auto-attempt playback on load and on first touch/click
+    window.addEventListener('DOMContentLoaded', playAudio);
+    ['click', 'touchstart', 'pointerdown'].forEach(evt => {
+      window.addEventListener(evt, () => {
+        if (weddingAudio.paused && !audioPlaying) {
+          playAudio();
+        }
+      }, { once: true });
+    });
+
+    // Keyboard Arrow Controls
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        nextPhoto();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        prevPhoto();
+      }
+    });
+
+    // Download Calendar .ics
+    const downloadCalendarBtn = document.getElementById('downloadCalendarBtn');
+    if (downloadCalendarBtn) {
+      downloadCalendarBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const icsContent = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Shikha & Pavitra Wedding//Royal Matrimony//EN',
+          'CALSCALE:GREGORIAN',
+          'METHOD:PUBLISH',
+          'BEGIN:VEVENT',
+          'UID:wedding-shikha-pavitra-20261020@royalmatrimony.com',
+          'DTSTAMP:20261020T000000Z',
+          'DTSTART:20261020T103000Z',
+          'DTEND:20261020T183000Z',
+          'SUMMARY:Royal Wedding of Shikha & Pavitra',
+          'DESCRIPTION:You are cordially invited to celebrate the holy matrimony of Shikha and Pavitra.\\n\\nOrder of Celebrations:\\n- 4:00 PM: The Sacred Vows\\n- 7:30 PM: Reception & Banquet',
+          'LOCATION:Plot No. A-1 & A-2, Community Centre, Road No. 42/43 (Bhagwan Mahavir Hospital Road), West Enclave, Pitampura, New Delhi, Delhi 110034',
+          'STATUS:CONFIRMED',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Royal_Wedding_Shikha_and_Pavitra.ics';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Initialize with first photograph
+    window.addEventListener('DOMContentLoaded', () => {
+      selectPhoto(0);
+    });
+  </script>
+</body>
+</html>
