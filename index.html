@@ -624,51 +624,88 @@
       }
     });
 
-    // --- High Energy Confetti Cannon Fireworks ---
+    // --- Top-to-Bottom Royal Confetti Cascade (+80% Volume) ---
     function triggerEpicConfetti() {
       if (typeof confetti === 'function') {
-        // Center burst
-        // Center burst with high zIndex
+        const luxuryColors = ['#C5A859', '#FFD700', '#F59E0B', '#E2C785', '#9B7832', '#D946EF', '#EC4899', '#F43F5E', '#10B981', '#FFFFFF'];
+
+        // Wave 1: Immediate wide cascade raining from the top (330 particles)
         confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 },
+          particleCount: 100,
+          angle: 270,
+          spread: 90,
+          startVelocity: 25,
+          gravity: 1.1,
+          ticks: 350,
+          scalar: 1.1,
+          origin: { x: 0.2, y: -0.05 },
           zIndex: 99999,
-          colors: ['#C5A859', '#8C6D2D', '#D946EF', '#EC4899', '#F59E0B', '#10B981', '#ffffff']
+          colors: luxuryColors
         });
 
-        // Left cannon
-        setTimeout(() => {
-          confetti({
-            particleCount: 80,
-            angle: 60,
-            spread: 60,
-            origin: { x: 0.1, y: 0.7 },
-            zIndex: 99999,
-            colors: ['#C5A859', '#FFD700', '#F43F5E', '#8B5CF6', '#10B981']
-          });
-        }, 150);
+        confetti({
+          particleCount: 130,
+          angle: 270,
+          spread: 110,
+          startVelocity: 28,
+          gravity: 1.1,
+          ticks: 350,
+          scalar: 1.15,
+          origin: { x: 0.5, y: -0.05 },
+          zIndex: 99999,
+          colors: luxuryColors
+        });
 
-        // Right cannon
+        confetti({
+          particleCount: 100,
+          angle: 270,
+          spread: 90,
+          startVelocity: 25,
+          gravity: 1.1,
+          ticks: 350,
+          scalar: 1.1,
+          origin: { x: 0.8, y: -0.05 },
+          zIndex: 99999,
+          colors: luxuryColors
+        });
+
+        // Wave 2: Interleaved top-down shower wave after 180ms (180 particles)
         setTimeout(() => {
           confetti({
-            particleCount: 80,
-            angle: 120,
-            spread: 60,
-            origin: { x: 0.9, y: 0.7 },
+            particleCount: 90,
+            angle: 270,
+            spread: 95,
+            startVelocity: 24,
+            gravity: 1.15,
+            ticks: 350,
+            scalar: 1.05,
+            origin: { x: 0.35, y: -0.05 },
             zIndex: 99999,
-            colors: ['#C5A859', '#FFD700', '#F43F5E', '#8B5CF6', '#10B981']
+            colors: luxuryColors
           });
-        }, 300);
+
+          confetti({
+            particleCount: 90,
+            angle: 270,
+            spread: 95,
+            startVelocity: 24,
+            gravity: 1.15,
+            ticks: 350,
+            scalar: 1.05,
+            origin: { x: 0.65, y: -0.05 },
+            zIndex: 99999,
+            colors: luxuryColors
+          });
+        }, 180);
       }
 
-      // Also trigger canvas rose petals burst
-      for (let i = 0; i < 35; i++) {
+      // Also trigger canvas rose petals falling from top (65 petals, +85% volume)
+      for (let i = 0; i < 65; i++) {
         const p = new Petal();
-        p.x = canvas.width / 2;
-        p.y = canvas.height / 2;
-        p.speedY = (Math.random() - 0.5) * 8;
-        p.speedX = (Math.random() - 0.5) * 8;
+        p.x = Math.random() * canvas.width;
+        p.y = -20 - Math.random() * 120;
+        p.speedY = Math.random() * 3.5 + 2.0;
+        p.speedX = (Math.random() - 0.5) * 3;
         particles.push(p);
       }
     }
